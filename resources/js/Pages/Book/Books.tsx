@@ -14,16 +14,28 @@ export default function Books({ auth, books}: PageProps<props>) {
         >
             <Head title="Books" />
                 {
-                    (books.length > 0 || books !== null) && (
+                    books.length > 0 ? (
                          <div className="py-12">
                                 {books.map(book => (
-                                    <div className="max-w-7xl mx-auto sm:px-6 lg:px-8" key={book.id}>
-                                        <div className="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg py-3">
-                                            <div className="p-6 text-gray-900 dark:text-gray-100"><a href={`/book/${book.id}`}>{book.title}</a></div>
-                                        </div>
+                                    <div className="max-w-7xl mx-auto sm:px-6 lg:px-8 my-5" key={book.id}>
+                                        <a href={`/book/${book.slug}`}>
+                                            <div className="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg hover:bg-gray-700 transition duration-200">
+                                                <div className="p-6 text-gray-900 dark:text-gray-100">{book.title}</div>
+                                             </div>
+                                        </a>
                                     </div>
                                 ))}
                         </div>
+                    ) : (
+                        (
+                         <div className="py-12">
+                                    <div className="max-w-7xl mx-auto sm:px-6 lg:px-8 my-5">
+                                            <div className="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg hover:bg-gray-700 transition duration-200 flex justify-center">
+                                                <div className="p-6 text-gray-900 dark:text-gray-100">No books.</div>
+                                             </div>
+                                    </div>
+                        </div>
+                    )
                     )
                 }
         </AuthenticatedLayout>

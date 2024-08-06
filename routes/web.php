@@ -18,7 +18,9 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
+    //books
     Route::resource('book',  BookController::class);
+    Route::get('/book/{book:slug}', [BookController::class, 'show']);
 });
 
 

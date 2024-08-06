@@ -13,11 +13,8 @@ class BookController extends Controller
      */
     public function index()
     {
-        //
         $books = Book::all();
-        return Inertia::render('Book/Books', [
-            'books' => $books
-        ]);
+        return Inertia::render('Book/Books', compact('books'));
     }
 
     /**
@@ -25,7 +22,7 @@ class BookController extends Controller
      */
     public function create()
     {
-        //
+        return Inertia::render('Book/Form');
     }
 
     /**
@@ -41,7 +38,7 @@ class BookController extends Controller
      */
     public function show(Book $book)
     {
-        //
+        return Inertia::render('Book/Book', compact('book'));
     }
 
     /**
