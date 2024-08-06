@@ -96,8 +96,6 @@ export default function Login({ status, canResetPassword }: { status?: string, c
                         Don't have an account?
                     </Link>
                     
-                   
-
                     <PrimaryButton className="ms-4" disabled={processing}>
                         Log in
                     </PrimaryButton>
